@@ -1,0 +1,447 @@
+SHMETRO:
+  data_col: ["inflow", "outflow"]  
+  num_nodes: 288  
+  in_steps: 4
+  out_steps: 4
+
+  time_intervals: 900  # 
+
+  # 训练配置
+  train_size: 0.7
+  val_size: 0.1
+  time_of_day: True
+  day_of_week: True
+  lr: 0.001
+  weight_decay: 0.0005
+  milestones: [30, 50, 75]
+  lr_decay_rate: 0.1
+  batch_size: 16
+  max_epochs: 200
+  early_stop: 50
+  use_cl: False
+  cl_step_size: 6370
+  load_dtw: True  
+  set_loss: 'l1'  
+  # 模型参数
+  model_args:
+    input_dim: 5  
+    output_channels: 2  
+    embed_dim: 64
+    num_layers: 2
+    add_day_in_week: True
+    add_time_in_day: True
+    hid_dim: 64
+    hid_hid_dim: 64
+    atol: 1.0e-9
+    rtol: 1.0e-7
+    solver: 'euler'
+    num_nodes: 288
+    in_steps: 4
+    out_steps: 4
+    steps_per_day: 96  
+    output_activation: 'none'  
+    g_eps: 5  
+    s_eps: 5  
+
+HZMETRO:
+  
+  data_col: ["inflow", "outflow"]  
+  num_nodes: 80  
+  in_steps: 4
+  out_steps: 4
+
+  time_intervals: 900  # 
+  load_dtw: True  
+  
+  # 训练配置
+  train_size: 0.7
+  val_size: 0.1
+  time_of_day: True
+  day_of_week: True
+  lr: 0.001
+  weight_decay: 0.0005
+  milestones: [30, 50, 75]
+  lr_decay_rate: 0.1
+  batch_size: 8
+  max_epochs: 200
+  early_stop: 50
+  use_cl: False
+  cl_step_size: 6370
+  set_loss: 'l1'
+  # 模型参数
+  model_args:
+    input_dim: 5  
+    output_channels: 2  
+    embed_dim: 64
+    num_layers: 2
+    add_day_in_week: True
+    add_time_in_day: True
+    hid_dim: 64
+    hid_hid_dim: 64
+    atol: 1.0e-9
+    rtol: 1.0e-7
+    solver: 'euler'
+    num_nodes: 80
+    in_steps: 4
+    out_steps: 4
+    steps_per_day: 96  
+    output_activation: 'none'  
+    g_eps: 5  
+    s_eps: 5  
+#speed based
+PEMS_BAY:
+  data_col: ["traffic_speed"]
+  num_nodes: 325
+  in_steps: 12
+  out_steps: 12
+  time_intervals: 300  
+
+  train_size: 0.7
+  val_size: 0.1
+  time_of_day: True
+  day_of_week: True
+  lr: 0.001
+  weight_decay: 0.0001 
+  milestones: [30, 50, 75]
+  lr_decay_rate: 0.1
+  batch_size: 16
+  max_epochs: 200
+  early_stop: 50
+  use_cl: False
+  cl_step_size: 6370
+  load_dtw: True  
+  set_loss: 'masked_mae'
+
+  model_args:
+    input_dim: 4
+    output_channels : 1
+    embed_dim: 64
+    num_layers: 2
+    add_day_in_week: True
+    add_time_in_day : True
+    hid_dim : 64
+    hid_hid_dim : 64
+    atol: 1.0e-9
+    rtol: 1.0e-7
+    solver: 'euler'
+    num_nodes: 325
+    in_steps: 12
+    out_steps: 12
+    steps_per_day: 288  
+    output_activation: 'sigmoid'  
+    g_eps: 5  
+    s_eps: 5  
+
+METR_LA:
+  data_col: ["traffic_speed"]
+  num_nodes: 207
+  in_steps: 12
+  out_steps: 12
+  time_intervals: 300  
+
+  train_size: 0.7
+  val_size: 0.1
+  time_of_day: True
+  day_of_week: True
+  lr: 0.001
+  weight_decay: 0 
+  milestones: [30, 50, 75]
+  lr_decay_rate: 0.1
+  batch_size: 16
+  max_epochs: 200
+  early_stop: 50
+  use_cl: False
+  cl_step_size: 2500 #mamba
+  load_dtw: True  
+  set_loss: 'masked_mae'
+
+  model_args:
+    input_dim: 4
+    output_channels : 1
+    embed_dim: 64
+    num_layers: 2
+    add_day_in_week: True
+    add_time_in_day : True
+    hid_dim : 64
+    hid_hid_dim : 64
+    atol: 1.0e-9
+    rtol: 1.0e-7
+    solver: 'euler'
+    num_nodes: 207
+    in_steps: 12
+    out_steps: 12
+    steps_per_day: 288  
+    output_activation: 'none'  
+    g_eps: 5  
+    s_eps: 5  
+
+
+NYCTAXI20140112:
+  
+  data_type: "grid"  
+  data_col: ["pickup", "dropoff"]  
+  num_nodes: 75  # 网格总数 (15 * 5)
+  in_steps: 6
+  out_steps: 1
+  
+  # Grid 特定配置
+  use_row_column: False  
+  time_intervals: 1800  # 
+
+  # 训练配置
+  train_size: 0.7
+  val_size: 0.1
+  time_of_day: True
+  day_of_week: True
+  lr: 0.001
+  weight_decay: 0.0005
+  milestones: [30, 50, 75]
+  lr_decay_rate: 0.1
+  batch_size: 16
+  max_epochs: 200
+  early_stop: 50
+  use_cl: False
+  cl_step_size: 6370
+  load_dtw: True  
+  set_loss: 'masked_mae'  
+  filter_threshold: 0.01
+  # 模型参数
+  model_args:
+    input_dim: 5 
+    output_channels: 2 
+    embed_dim: 64
+    num_layers: 2
+    add_day_in_week: True
+    add_time_in_day: True
+    hid_dim: 64
+    hid_hid_dim: 64
+    atol: 1.0e-9
+    rtol: 1.0e-7
+    solver: 'euler'
+    num_nodes: 75
+    in_steps: 6
+    out_steps: 1
+    steps_per_day: 48  
+    output_activation: 'none'  
+    g_eps: 5  
+    s_eps: 5  
+    
+    
+BIKECHI202007-202009:
+  
+  data_type: "grid"  
+  data_col: ["inflow", "outflow"]  
+  num_nodes: 270  # 网格总数 (15 * 18)
+  in_steps: 6
+  out_steps: 1
+  
+  # Grid 特定配置
+  use_row_column: False  
+  time_intervals: 1800  # 
+
+  # 训练配置
+  train_size: 0.7
+  val_size: 0.1
+  time_of_day: True
+  day_of_week: True
+  lr: 0.001
+  weight_decay: 0.0005
+  milestones: [30, 50, 75]
+  lr_decay_rate: 0.1
+  batch_size: 16
+  max_epochs: 200
+  early_stop: 50
+  use_cl: False
+  cl_step_size: 6370
+  load_dtw: True  
+  set_loss: 'masked_mae'  
+  filter_threshold: 0.005
+  # 模型参数
+  model_args:
+    input_dim: 5 
+    output_channels: 2  # 
+    embed_dim: 64
+    num_layers: 2
+    add_day_in_week: True
+    add_time_in_day: True
+    hid_dim: 64
+    hid_hid_dim: 64
+    atol: 1.0e-9
+    rtol: 1.0e-7
+    solver: 'euler'
+    num_nodes: 270
+    in_steps: 6
+    out_steps: 1
+    steps_per_day: 48  
+    output_activation: 'none' 
+    g_eps: 5  
+    s_eps: 5  
+
+PEMS04:
+  data_col: ["traffic_flow"]
+  num_nodes: 307
+  in_steps: 12
+  out_steps: 12
+  time_intervals: 300  
+
+  train_size: 0.6
+  val_size: 0.2
+  time_of_day: True
+  day_of_week: True
+  lr: 0.001
+  weight_decay: 0.0005
+  milestones: [30, 50, 75]  
+  lr_decay_rate: 0.1
+  batch_size: 16
+  max_epochs: 200
+  early_stop: 50
+  use_cl: False
+  cl_step_size: 6370
+  load_dtw: True  
+  set_loss: 'huber'
+  model_args:
+    input_dim: 4 
+    output_channels : 1
+    embed_dim: 64
+    num_layers: 2
+    add_day_in_week: True
+    add_time_in_day : True
+    hid_dim : 64
+    hid_hid_dim : 64
+    atol: 1.0e-9
+    rtol: 1.0e-7
+    solver: 'euler'
+    num_nodes: 307
+    in_steps: 12
+    out_steps: 12
+    steps_per_day: 288  
+    output_activation: 'sigmoid'  
+    g_eps: 5  
+    s_eps: 5  
+   
+
+PEMS07:
+  data_col: ["traffic_flow"]
+  num_nodes: 883
+  in_steps: 12
+  out_steps: 12
+  time_intervals: 300  
+  train_size: 0.6
+  val_size: 0.2
+  time_of_day: True
+  day_of_week: True
+  lr: 0.001
+  weight_decay: 0.001
+  milestones: [30, 50, 75] 
+  lr_decay_rate: 0.1
+  batch_size: 16
+  max_epochs: 200
+  early_stop: 50
+  use_cl: False
+  cl_step_size: 2500
+  load_dtw: True 
+
+  model_args:
+    input_dim: 4
+    output_channels : 1
+    embed_dim: 64
+    num_layers: 2
+    add_day_in_week: True
+    add_time_in_day : True
+    hid_dim : 64
+    hid_hid_dim : 64
+    atol: 1.0e-9
+    rtol: 1.0e-7
+    solver: 'euler'
+    num_nodes: 883
+    in_steps: 12
+    out_steps: 12
+    steps_per_day: 288  
+    output_activation: 'sigmoid'  
+    g_eps: 5  
+    s_eps: 5  
+    
+PEMS08:
+  data_col: ["traffic_flow"]
+  num_nodes: 170
+  in_steps: 12
+  out_steps: 12
+  time_intervals: 300  
+  train_size: 0.6
+  val_size: 0.2
+  time_of_day: True
+  day_of_week: True
+  lr: 0.001
+  weight_decay: 0.0015
+  milestones: [25, 45, 65]
+  lr_decay_rate: 0.1
+  batch_size: 16
+  max_epochs: 200
+  early_stop: 50
+  use_cl: False
+  cl_step_size: 2500
+  load_dtw: True 
+
+  model_args:
+    input_dim: 4
+    output_channels : 1
+    embed_dim: 64
+    num_layers: 2
+    add_day_in_week: True
+    add_time_in_day : True
+    hid_dim : 64
+    hid_hid_dim : 64
+    atol: 1.0e-9
+    rtol: 1.0e-7
+    solver: 'euler'
+    num_nodes: 170
+    in_steps: 12
+    out_steps: 12
+    steps_per_day: 288  
+    output_activation: 'sigmoid'  
+    g_eps: 5  
+    s_eps: 5  
+     
+
+PEMS03:
+  data_col: ["traffic_flow"]
+  num_nodes: 358
+  in_steps: 12
+  out_steps: 12
+  time_intervals: 300  
+  train_size: 0.6
+  val_size: 0.2
+  time_of_day: True
+  day_of_week: True
+  lr: 0.001
+  weight_decay: 0.001
+  milestones: [30, 50, 65] 
+  lr_decay_rate: 0.1
+  batch_size: 32
+  max_epochs: 200
+  early_stop: 50
+  use_cl: False
+  cl_step_size: 2500
+  set_loss: 'huber'
+  huber_delta: 1.0
+  load_dtw: True 
+  
+  model_args:
+    input_dim: 4
+    output_channels : 1
+    embed_dim: 64
+    num_layers: 2
+    add_day_in_week: True
+    add_time_in_day : True
+    hid_dim : 64
+    hid_hid_dim : 64
+    atol: 1.0e-9
+    rtol: 1.0e-7
+    solver: 'euler'
+    num_nodes: 358
+    in_steps: 12
+    out_steps: 12
+    steps_per_day: 288  
+    output_activation: 'sigmoid'  
+    g_eps: 5  
+    s_eps: 5  
