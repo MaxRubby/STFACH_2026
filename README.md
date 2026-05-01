@@ -1,10 +1,15 @@
 # Modeling Continuous and Heterogeneous Spatio-Temporal Dependencies for Accurate Traffic Forecasting
 
+Please cite this paper as follows if it is helpful to your work:
+## Citation
+```
+M. Wen, X. Niu, J. Zhu and P. Fournier-Viger, "Modeling Continuous and Heterogeneous Spatio-Temporal Dependencies for Accurate Traffic Forecasting," in IEEE Internet of Things Journal, vol. 13, no. 8, pp. 17696-17715, 15 April15, 2026, doi: 10.1109/JIOT.2026.3663402.
+keywords: {Adaptation models;Forecasting;Predictive models;Internet of Things;Mathematical models;Correlation;Semantics;Roads;Accuracy;Vectors;Graph neural network (GNN);intelligent transportation system (ITS);neural differential equations (NDEs);spatio-temporal dependencies;traffic forecasting},
+```
+Link: https://ieeexplore.ieee.org/document/11389793
 ## 📦 Overview
 
 This repository contains the **official implementation** of STFACH (Spatio-Temporal Forecasting with Adaptive Continuous Heterogeneous modeling).
-
-**Academic Rights Protection:** This codebase is archived and protected with a timestamp through Zenodo DOI, establishing clear provenance and authorship priority.
 
 🔗 **Zenodo DOI:** [10.5281/zenodo.18303795](https://zenodo.org/records/18303795)
 
@@ -15,7 +20,7 @@ The repository includes:
 - `lib/`: Utility functions and metrics
 - `finetune_his/`: Fine-tuning weights
 
-Upon acceptance and publication, this code will be released under an open-source license to facilitate reproducibility and future research. We appreciate your understanding of this approach to protect our academic contributions during the review process.
+
 
 ---
 
