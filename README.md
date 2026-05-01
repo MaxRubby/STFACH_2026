@@ -103,3 +103,14 @@ python train.py -d HZMETRO -m test -e 1 -c comment -cont 95
 We acknowledge the LibCity project for providing standardized datasets and evaluation protocols for traffic forecasting research.
 
 ---
+
+
+## Star History
+
+<a href="https://www.star-history.com/?repos=MaxRubby%2FSTFACH_2026&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=MaxRubby/STFACH_2026&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=MaxRubby/STFACH_2026&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=MaxRubby/STFACH_2026&type=date&legend=top-left" />
+ </picture>
+</a>
